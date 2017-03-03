@@ -1,4 +1,5 @@
 package com.dev.util.mswords.doc;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -9,36 +10,36 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 public class HtmlParser {
-   public static void main(String[] args) {
-      String html = "file:///";
-      try {
-    	  
-    	 ;
-       //  Document doc = Jsoup.connect(html).get();
-         Document doc = Jsoup.parse( FileUtils.readFileToString(new File("inputdata/outTables.html/outTables.html")));
-         Elements tableElements = doc.select("table");
+	public static void main(String[] args) {
+		String html = "file:///";
+		try {
 
-         Elements tableHeaderEles = tableElements.select("thead tr th");
-       //  System.out.println("headers");
-         for (int i = 0; i < tableHeaderEles.size(); i++) {
-            System.out.print(tableHeaderEles.get(i).text()+"|");
-         }
-         System.out.println();
+			;
+			// Document doc = Jsoup.connect(html).get();
+			Document doc = Jsoup.parse(FileUtils.readFileToString(new File("inputdata/outTables.html/outTables.html")));
+			Elements tableElements = doc.select("table");
 
-         Elements tableRowElements = tableElements.select(":not(thead) tr");
+			Elements tableHeaderEles = tableElements.select("thead tr th");
+			// System.out.println("headers");
+			for (int i = 0; i < tableHeaderEles.size(); i++) {
+				System.out.print(tableHeaderEles.get(i).text() + "|");
+			}
+			System.out.println();
 
-         for (int i = 0; i < tableRowElements.size(); i++) {
-            Element row = tableRowElements.get(i);
-            System.out.println("------------------");
-            Elements rowItems = row.select("td");
-            for (int j = 0; j < rowItems.size(); j++) {
-               System.out.print(rowItems.get(j).text()+"|");
-            }
-            System.out.println();
-         }
+			Elements tableRowElements = tableElements.select(":not(thead) tr");
 
-      } catch (IOException e) {
-         e.printStackTrace();
-      }
-   }
+			for (int i = 0; i < tableRowElements.size(); i++) {
+				Element row = tableRowElements.get(i);
+				System.out.println("------------------");
+				Elements rowItems = row.select("td");
+				for (int j = 0; j < rowItems.size(); j++) {
+					System.out.print(rowItems.get(j).text() + "|");
+				}
+				System.out.println();
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
