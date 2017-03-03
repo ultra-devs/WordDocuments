@@ -15,7 +15,7 @@ public class HtmlParser {
     	  
     	 ;
        //  Document doc = Jsoup.connect(html).get();
-         Document doc = Jsoup.parse( FileUtils.readFileToString(new File("E:/2017/poc/testdata/ws_datapedia/outTables.html")));
+         Document doc = Jsoup.parse( FileUtils.readFileToString(new File("inputdata/outTables.html/outTables.html")));
          Elements tableElements = doc.select("table");
 
          Elements tableHeaderEles = tableElements.select("thead tr th");

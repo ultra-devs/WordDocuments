@@ -15,7 +15,7 @@ public class TableExtractor {
 	static List<Node> tables = new ArrayList<Node>();
 
 	public static void main(String[] args) throws Exception {
-		Document doc = new Document("E:/2017/poc/testdata/ws_datapedia/NAME.doc");
+		Document doc = new Document("inputdata/NAME.doc");
 
 		// Create a clone of the document
 		Document tempDoc = doc.deepClone();
@@ -41,7 +41,7 @@ public class TableExtractor {
 					tempDoc.getFirstSection().getBody().getFirstParagraph());
 		}
 
-		tempDoc.save("E:/2017/poc/testdata/ws_datapedia/outTables.html");
+		tempDoc.save("inputdata/outTables.html");
 
 	}
 }
